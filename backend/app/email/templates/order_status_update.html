@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Order Status Update</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background:#f9f9f9; padding:20px;">
+
+    <div style="max-width:600px; margin:auto; background:#ffffff; border-radius:8px; padding:20px;">
+
+        <h2 style="color:#2c3e50;">Order Status Update</h2>
+        
+        <p>Hello <strong>{{ user.name }}</strong>,</p>
+
+        <p>Your order status has been updated. Here are the details:</p>
+
+        <hr />
+
+        <h3>🧾 Order Summary</h3>
+        <p><strong>Order ID:</strong> #{{ order.id }}</p>
+        <p><strong>New Status:</strong> {{ order.status }}</p>
+        <p><strong>Total Amount:</strong> {{ order.total }}</p>
+
+        {% if order.items %}
+        <h4>Items:</h4>
+        <ul>
+            {% for item in order.items %}
+            <li>{{ item.name }} × {{ item.quantity }} — {{ item.price }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if order.delivery_address %}
+        <p><strong>Delivery Address:</strong> {{ order.delivery_address }}</p>
+        {% endif %}
+
+        <hr />
+
+        {% if order.status == "confirmed" %}
+        <p>Your order has been confirmed and is being prepared. We'll notify you when it's ready.</p>
+        {% elif order.status == "preparing" %}
+        <p>Your order is now being prepared. We'll notify you when it's ready for pickup or delivery.</p>
+        {% elif order.status == "ready" %}
+        <p>Your order is ready and will be delivered soon. Please be available at the delivery address.</p>
+        {% elif order.status == "completed" %}
+        <p>Your order has been successfully completed. Thank you for your order!</p>
+        {% else %}
+        <p>Your order status has been updated to: <strong>{{ order.status }}</strong></p>
+        {% endif %}
+
+        <p style="margin-top:20px;">
+            Thank you for choosing <strong>Chillazi</strong> 🍽️
+        </p>
+
+        <!-- Tracking Pixel -->
+        {% if message_id %}
+        <img src="{{ tracking_url }}/open/{{ message_id }}" width="1" height="1" />
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

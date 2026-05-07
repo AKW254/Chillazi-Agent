@@ -1,0 +1,11 @@
+[
+  {
+    "user_id": 1,
+    "total_amount": 22.49,
+    "status": "pending",
+    "items": [
+      { "menu_item_id": 1, "quantity": 1 },
+      { "menu_item_id": 2, "quantity": 1 }
+    ]
+  }
+]

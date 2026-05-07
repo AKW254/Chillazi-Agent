@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Order Cancelled</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background:#f9f9f9; padding:20px;">
+
+    <div style="max-width:600px; margin:auto; background:#ffffff; border-radius:8px; padding:20px;">
+
+        <h2 style="color:#2c3e50;">Order Cancelled</h2>
+        <div style="display:flex; justify-content:center; margin-bottom:20px;">
+            <img src="https://chillazi.devlan.co.ke/Storage/img/mail/Cancel.svg" alt="Chillazi Order" style="width:260px;" />
+        </div>
+        <p>Hello <strong>{{ user.name }}</strong>,</p>
+
+        <p>Your order has been cancelled. Below are the details:</p>
+
+        <hr />
+
+        <h3>🧾 Order Summary</h3>
+        <p><strong>Order ID:</strong> #{{ order.id }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Total Amount:</strong> {{ order.total }}</p>
+
+        {% if order.items %}
+        <h4>Items:</h4>
+        <ul>
+            {% for item in order.items %}
+            <li>{{ item.name }} × {{ item.quantity }} — {{ item.price }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if order.delivery_address %}
+        <p><strong>Delivery Address:</strong> {{ order.delivery_address }}</p>
+        {% endif %}
+
+        <hr />
+
+        <p>We regret to inform you that your order has been cancelled.</p>
+
+        <p style="margin-top:20px;">
+            Thank you for choosing <strong>Chillazi</strong> 🍽️
+        </p>
+
+        <!-- Tracking Pixel -->
+        {% if message_id %}
+        <img src="{{ tracking_url }}/open/{{ message_id }}" width="1" height="1" />
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

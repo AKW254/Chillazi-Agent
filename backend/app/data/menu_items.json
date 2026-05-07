@@ -1,0 +1,5 @@
+[
+  { "name": "Margherita Pizza", "description": "Classic cheese & tomato", "price": 9.99 },
+  { "name": "Spicy Ramen", "description": "Pork broth with chili oil", "price": 12.5 },
+  { "name": "Caesar Salad", "description": "Romaine, parmesan, croutons", "price": 7.25 }
+]

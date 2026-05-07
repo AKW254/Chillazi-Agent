@@ -1,0 +1,72 @@
+/* Import the fonts first */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+/* Tailwind's base, components, and utilities */
+@import "tailwindcss";
+
+/* Extend Tailwind with your own design tokens */
+@theme {
+  --font-sans: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --color-sand-50: #fffaf4;
+  --color-sand-100: #f7f1e5;
+  --color-sand-200: #ead8c3;
+  --color-sand-300: #f5c7ae;
+  --color-clay-500: #cb5f31;
+  --color-clay-600: #b24f25;
+  --color-clay-700: #9d3f19;
+  --color-espresso-900: #241811;
+}
+
+/* Global base styles */
+@layer base {
+  /* A reusable fade-up animation (use with class="animate-fade-up") */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    color: #241811; /* espresso-900 */
+    background: linear-gradient(to bottom right, #0b1220, #111827, #020617);
+  }
+
+  /* Decorative blurred blobs behind the content */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    border-radius: 999px;
+    pointer-events: none;
+    filter: blur(10px);
+  }
+
+  body::before {
+    inset: auto auto 12% 3%;
+    width: 18rem;
+    height: 18rem;
+    background: rgba(253, 248, 248, 0.24);
+  }
+
+  body::after {
+    inset: 8% 4% auto auto;
+    width: 12rem;
+    height: 12rem;
+    background: rgba(236, 235, 234, 0.34);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
