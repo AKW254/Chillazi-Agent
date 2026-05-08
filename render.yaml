@@ -4,7 +4,7 @@ services:
     name: backend
     runtime: docker
     repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
-    plan: starter # You can change this to 'free' if applicable
+    plan: free # You can change this to 'free' if applicable
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
     envVars:
@@ -16,7 +16,7 @@ services:
     name: frontend
     runtime: docker
     repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
-    plan: starter
+    plan: free # You can change this to 'free' if applicable
     dockerContext: ./frontend
     dockerfilePath: ./frontend/Dockerfile
     envVars:
