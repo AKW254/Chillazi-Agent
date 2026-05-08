@@ -10,17 +10,20 @@ WORKDIR /app
 # Install system packages
 RUN apt-get update && apt-get install -y \
     build-essential \
+    gcc \
+    libpq-dev \
     curl \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Copy requirements file
 COPY requirements.txt .
 
 # Upgrade pip
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip setuptools wheel
 
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN  pip install --no-cache-dir -r requirements.txt
 
 # Copy backend code
 COPY . .
