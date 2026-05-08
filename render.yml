@@ -1,0 +1,27 @@
+services:
+  # The Backend Service
+  - type: web
+    name: backend
+    runtime: docker
+    repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
+    plan: starter # You can change this to 'free' if applicable
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - fromGroup: backend-env-group # Best practice: create an Env Group in Render dashboard
+      
+
+  # The Frontend Service
+  - type: web
+    name: frontend
+    runtime: docker
+    repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
+    plan: starter
+    dockerContext: ./frontend
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          name: backend
+          type: web
+          property: host
