@@ -3,8 +3,8 @@
 # =========================
 FROM node:22-alpine AS builder
 
-# Set working directory inside the container
-WORKDIR /frontend
+# Set working directory
+WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
