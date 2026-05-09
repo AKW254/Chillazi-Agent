@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     
     # CORS Settings
-    cors_origins: str = ""
+    cors_origins: List[str] = ["*"]  # Allow all origins by default
     cors_allow_credentials: bool = True
     cors_allow_methods: List[str] = ["*"]
     cors_allow_headers: List[str] = ["*"]
