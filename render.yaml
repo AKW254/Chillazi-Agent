@@ -1,27 +1,25 @@
 services:
-  # The Backend Service
+  # Backend
   - type: web
     name: backend
     runtime: docker
-    repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
-    plan: free # You can change this to 'free' if applicable
+    repo: https://github.com/AKW254/Chillazi-Agent
+    plan: free
     dockerContext: ./backend
     dockerfilePath: ./backend/Dockerfile
-    envVars:
-      - fromGroup: backend-env-group # Best practice: create an Env Group in Render dashboard
-      
 
-  # The Frontend Service
+    envVars:
+      - fromGroup: backend-env-group
+
+  # Frontend
   - type: web
     name: frontend
     runtime: docker
-    repo: https://github.com/AKW254/Chillazi-Agent # Replace with your actual repo URL
-    plan: free # You can change this to 'free' if applicable
+    repo: https://github.com/AKW254/Chillazi-Agent
+    plan: free
     dockerContext: ./frontend
     dockerfilePath: ./frontend/Dockerfile
+
     envVars:
-      - key: BACKEND_URL
-        fromService:
-          name: backend
-          type: web
-          property: host
+      - key: VITE_API_URL
+        value: https://backend-zw17.onrender.com
