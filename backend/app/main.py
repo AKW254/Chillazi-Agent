@@ -73,12 +73,23 @@ def create_app() -> FastAPI:
     async def shutdown_event():
         logger.info("Shutting down API...")
 
-    # --------------------------------------------------
-    # Health Check
-    # --------------------------------------------------
+  # --------------------------------------------------
+# Root Route
+# --------------------------------------------------
+    @app.get("/", tags=["Root"])
+    def root():
+        return {
+        "status": "ok",
+        "message": "Food Ordering Chatbot API running"
+        }
+
+
+# --------------------------------------------------
+# Health Check
+# --------------------------------------------------
     @app.get("/health", tags=["Health"])
     def health_check():
-        return {"status": "ok"}
+        return {"status": "healthy"}
 
     return app
 
