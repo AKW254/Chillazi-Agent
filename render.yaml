@@ -22,4 +22,4 @@ services:
 
     envVars:
       - key: VITE_API_URL
-        value: https://backend-zw17.onrender.com
+        value: https://backend-ycne.onrender.com
