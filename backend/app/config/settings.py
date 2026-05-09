@@ -16,16 +16,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60
     
     # CORS Settings
-    cors_origins: List[str] = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:4173",
-        "http://127.0.0.1:4173",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-    ]
+    cors_origins: str = ""
     cors_allow_credentials: bool = True
     cors_allow_methods: List[str] = ["*"]
     cors_allow_headers: List[str] = ["*"]
