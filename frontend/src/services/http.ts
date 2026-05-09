@@ -11,17 +11,14 @@ export class ApiError extends Error {
 }
 
 function getApiBaseUrl(): string {
-  const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim()
+  const url = import.meta.env.VITE_API_URL;
 
-  if (configuredBaseUrl) {
-    return configuredBaseUrl.replace(/\/+$/, '')
+  if (!url) {
+    throw new Error("VITE_API_URL is not defined");
   }
 
-  // Default to same-origin requests so local Vite proxying can handle `/api`
-  // during development without tripping CORS.
-  return ''
+  return url.replace(/\/+$/, "");
 }
-
 function buildApiUrl(path: string): string {
   if (/^https?:\/\//i.test(path)) {
     return path
