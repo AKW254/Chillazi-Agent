@@ -14,7 +14,9 @@ RUN npm install
 
 # Copy source code
 COPY . .
-
+# Inside your frontend/Dockerfile
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
 # Build app
 RUN npm run build
 
