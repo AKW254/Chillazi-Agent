@@ -11,7 +11,8 @@ export class ApiError extends Error {
 }
 
 function getApiBaseUrl(): string {
-  const url = import.meta.env.VITE_API_URL;
+  const url =
+    import.meta.env.VITE_API_URL ?? "https://backend-809t.onrender.com";
 
   if (!url) {
     throw new Error("VITE_API_URL is not defined");
