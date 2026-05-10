@@ -1,6 +1,6 @@
-# 🤖 CHillazi Smart AI Assistant — Helpdesk & Waiter System
+# 🤖 Chillazi Agent Smart AI Assistant — Helpdesk & Waiter System
 
-![Chillazi](screenshots/Landing page.png)
+![Chillazi](screenshots/Landing_page.png)
 
 <!-- Screenshots are included from /screenshots as requested -->
 
@@ -8,7 +8,7 @@ An intelligent conversational AI assistant built in **Python (FastAPI)** with **
 
 ---
 
-![Chillazi](screenshots/chat panel.png)
+![Chillazi](screenshots/chat_panel.png)
 
 ## 🚀 Features
 
@@ -60,11 +60,11 @@ frontend/
 
 ## 🖼️ Screenshots
 
-- Landing page: `screenshots/Landing page.png`
-- Login: `screenshots/login.png`
-- Sign up: `screenshots/sign up.png`
-- Chat panel: `screenshots/chat panel.png`
-- Admin dashboard: `screenshots/admin dashboard.png`
+- Landing page: ![Landing page](screenshots/Landing_page.png)
+- Login: ![Login](screenshots/login.png)
+- Sign up: ![Sign up](screenshots/sign_up.png)
+- Chat panel: ![Chat panel](screenshots/chat_panel.png)
+- Admin dashboard: ![Admin dashboard](screenshots/admin_dashboard.png)
 
 ---
 
